@@ -1,0 +1,104 @@
+<!-- Devtools -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .calculator {
+        padding-bottom: 30px;
+        width: 300px;
+      }
+
+      .display {
+        padding: 15px 20px;
+        line-height: 1;
+        font-size: 4rem;
+        font-weight: 300;
+        text-align: right;
+        color: #fff;
+        background-color: #4c4c4c;
+      }
+
+      .buttons {
+        display: grid;
+        gap: 2px;
+        grid-template-columns: repeat(4, 1fr);
+        background-color: #8e8e8d;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 20px;
+        font-size: 2rem;
+        background-color: #e0e0e0;
+      }
+
+      .button-orange {
+        color: #fff;
+        background-color: #ff9f0a;
+      }
+
+      .button-wide {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">11</div>
+      <div class="buttons">
+        <button>C</button>
+        <button>+/-</button>
+        <button>%</button>
+        <button class="button-orange">÷</button>
+
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="button-orange">x</button>
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="button-orange">-</button>
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="button-orange">+</button>
+
+        <button class="button-wide">0</button>
+        <button>.</button>
+        <button>=</button>
+      </div>
+    </div>
+    <div id="gugudan"></div>
+    <script>
+      // - 한 줄에 4개 단씩 출력 ( 2,3,4,5 단 / 6,7,8,9 단 )
+      // - 각 단은 * 1 부터 * 9 까지 출력하되 4의 배수에 해당하는 곱은 제외.
+
+      function gugudan() {
+        const gugudanEle = document.querySelector('#gugudan');
+        for (let i = 2; i <= 9; i += 4) {
+          for (let j = 1; j <= 9; j++) {
+            for (let k = i; k < i + 4; k++) {
+              console.log(k, j);
+              gugudanEle.innerHTML += `${k} * ${j} = ${
+                k * j
+              } &nbsp;&nbsp;&nbsp;`;
+            }
+            gugudanEle.innerHTML += `<br>`;
+          }
+          gugudanEle.innerHTML += `<br>`;
+        }
+      }
+      gugudan();
+    </script>
+  </body>
+</html>

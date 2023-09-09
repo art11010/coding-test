@@ -18,7 +18,7 @@ export default function List() {
   return (
     <div className="grid grid-cols-3 gap-4">
       {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
-      {/* {data?.map(({ id, author, url, download_url }: ImageItemProps) => (
+      {data?.map(({ id, author, url, download_url }: ImageItemProps) => (
         <ImageItem
           key={id}
           id={id}
@@ -26,7 +26,7 @@ export default function List() {
           url={url}
           download={download_url}
         />
-      ))} */}
+      ))}
     </div>
   );
 }

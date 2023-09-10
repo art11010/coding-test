@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getImages } from '../api/image';
 import ImageItem from '../components/ImageItem';
 
@@ -10,7 +10,7 @@ interface ImageItemProps {
 }
 
 export default function List() {
-  const { data } = useInfiniteQuery(
+  const { data } = useQuery(
     ['images'],
     async ({ pageParam = 1 }) => await getImages(pageParam, 10),
   );
